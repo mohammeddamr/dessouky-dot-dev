@@ -19,71 +19,65 @@ const Skills = () => {
       title: "DevOps & Infrastructure",
       icon: <Server className="h-6 w-6" />,
       skills: [
-        { name: "Docker", level: 90 },
-        { name: "Kubernetes", level: 85 },
-        { name: "Red Hat Enterprise Linux", level: 88 },
-        { name: "Ansible", level: 82 },
-        { name: "CI/CD Pipelines", level: 85 }
+        "Docker",
+        "Kubernetes", 
+        "Red Hat Enterprise Linux",
+        "Ansible",
+        "CI/CD Pipelines"
       ]
     },
     {
       title: "Cloud Platforms",
       icon: <Cloud className="h-6 w-6" />,
       skills: [
-        { name: "AWS", level: 80 },
-        { name: "Azure", level: 75 },
-        { name: "Google Cloud Platform", level: 70 },
-        { name: "Terraform", level: 78 }
+        "AWS",
+        "Azure",
+        "Google Cloud Platform",
+        "Terraform"
       ]
     },
     {
       title: "Version Control & Collaboration",
       icon: <GitBranch className="h-6 w-6" />,
       skills: [
-        { name: "Git", level: 95 },
-        { name: "GitHub Actions", level: 85 },
-        { name: "GitLab CI", level: 80 },
-        { name: "Jenkins", level: 75 }
+        "Git",
+        "GitHub Actions",
+        "GitLab CI",
+        "Jenkins"
       ]
     },
     {
       title: "Programming & Development",
       icon: <Code className="h-6 w-6" />,
       skills: [
-        { name: "Python", level: 85 },
-        { name: "Bash Scripting", level: 90 },
-        { name: "JavaScript", level: 75 },
-        { name: "HTML/CSS", level: 80 }
+        "Python",
+        "Bash Scripting",
+        "JavaScript",
+        "HTML/CSS"
       ]
     },
     {
       title: "Monitoring & Security",
       icon: <Shield className="h-6 w-6" />,
       skills: [
-        { name: "Prometheus", level: 75 },
-        { name: "Grafana", level: 78 },
-        { name: "ELK Stack", level: 72 },
-        { name: "Cybersecurity Fundamentals", level: 80 }
+        "Prometheus",
+        "Grafana",
+        "ELK Stack",
+        "Cybersecurity Fundamentals"
       ]
     },
     {
       title: "Networking & Databases",
       icon: <Database className="h-6 w-6" />,
       skills: [
-        { name: "Network Operations", level: 85 },
-        { name: "MySQL", level: 75 },
-        { name: "PostgreSQL", level: 70 },
-        { name: "Redis", level: 72 }
+        "Network Operations",
+        "MySQL",
+        "PostgreSQL",
+        "Redis"
       ]
     }
   ];
 
-  const getSkillColor = (level: number) => {
-    if (level >= 90) return "bg-primary";
-    if (level >= 80) return "bg-primary-light";
-    if (level >= 70) return "bg-primary/70";
-    return "bg-primary/50";
-  };
 
   return (
     <section id="skills" className="py-20 bg-background">
@@ -109,19 +103,11 @@ const Skills = () => {
                 <h3 className="font-semibold text-lg">{category.title}</h3>
               </div>
 
-              <div className="space-y-4">
+              <div className="space-y-3">
                 {category.skills.map((skill, skillIndex) => (
-                  <div key={skillIndex} className="space-y-2">
-                    <div className="flex justify-between items-center">
-                      <span className="text-sm font-medium text-foreground">{skill.name}</span>
-                      <span className="text-xs text-muted-foreground">{skill.level}%</span>
-                    </div>
-                    <div className="w-full bg-muted rounded-full h-2">
-                      <div 
-                        className={`h-2 rounded-full transition-all duration-1000 ${getSkillColor(skill.level)}`}
-                        style={{ width: `${skill.level}%` }}
-                      ></div>
-                    </div>
+                  <div key={skillIndex} className="flex items-center">
+                    <div className="w-2 h-2 bg-primary rounded-full mr-3"></div>
+                    <span className="text-foreground font-medium">{skill}</span>
                   </div>
                 ))}
               </div>
